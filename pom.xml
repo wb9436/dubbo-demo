@@ -11,6 +11,7 @@
         <module>dubbo-interface</module>
         <module>dubbo-provider</module>
         <module>dubbo-consumer</module>
+        <module>dubbo-provider2</module>
     </modules>
 
     <name>dubbo-demo</name>
@@ -128,13 +129,6 @@
     </dependencyManagement>
 
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+
 
 </project>
