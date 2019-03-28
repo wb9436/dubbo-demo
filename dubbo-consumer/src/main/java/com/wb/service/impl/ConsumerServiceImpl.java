@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ConsumerServiceImpl implements IConsumerService {
 
-    @Reference(url = "dubbo://192.168.1.166:20880")
+    @Reference
     private IUserService userService;
 
     @Override
