@@ -1,0 +1,12 @@
+server:
+ port: 8082
+
+dubbo:
+  application:
+    name: dubbo-consumer
+  registry:
+    address: redis://127.0.0.1:6379
+    username: auth
+    password: 12345
+
+
