@@ -16,6 +16,8 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     public UserInfoDto getUserInfo(int userId) {
-        return userInfoDao.getUserById(userId);
+        UserInfoDto userInfoDto = new UserInfoDto(userId, "小明" + userId);
+        userInfoDto.setVersion("Service: " + "1.0");
+        return userInfoDto;
     }
 }

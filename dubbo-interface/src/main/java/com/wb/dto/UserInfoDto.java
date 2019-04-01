@@ -6,6 +6,7 @@ public class UserInfoDto implements Serializable {
 
     private Integer userId;
     private String username;
+    private String version;
 
     public UserInfoDto() {
     }
@@ -31,11 +32,20 @@ public class UserInfoDto implements Serializable {
         this.username = username;
     }
 
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         return "UserInfoDto{" +
                 "userId=" + userId +
                 ", username='" + username + '\'' +
+                ", version='" + version + '\'' +
                 '}';
     }
 }

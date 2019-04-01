@@ -1,5 +1,5 @@
 server:
- port: 8084
+ port: 8083
 
 spring:
  datasource:
@@ -17,12 +17,10 @@ spring:
 
 dubbo:
   application:
-    name: dubbo-provider2
+    name: dubbo-zookeeper-provider
   registry:
-    address: redis://127.0.0.1:6379
-    username: auth
-    password: 12345
+    address: zookeeper://127.0.0.1:2181?client=zkclient
   protocol:
     name: dubbo
-    port: 20881
+    port: 20880
 

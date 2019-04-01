@@ -5,15 +5,14 @@ import com.wb.dto.UserInfoDto;
 import com.wb.service.IUserService;
 import org.springframework.stereotype.Component;
 
-@Service
+@Service        //非spring 暴露服务
 @Component
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements IUserService{
 
     @Override
     public UserInfoDto getUserInfo(int userId) {
         UserInfoDto userInfoDto = new UserInfoDto(userId, "小明" + userId);
-        userInfoDto.setVersion("Service: " + "2.0");
+        userInfoDto.setVersion("Service: " + "1.0");
         return userInfoDto;
     }
-
 }
