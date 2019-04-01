@@ -18,6 +18,10 @@ spring:
 dubbo:
   application:
     name: dubbo-zookeeper-provider2
+  module:
+    name: Message
+    version: 1.0
+    owner: 1016065991
   registry:
     address: zookeeper://127.0.0.1:2181?client=zkclient|zookeeper://127.0.0.1:2182?client=zkclient
   protocol:
