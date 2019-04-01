@@ -17,4 +17,9 @@ public class ZookeeperConsumerController {
         return zookeeperConsumerService.getUserInfo(userId);
     }
 
+    @RequestMapping("/msg")
+    String sendMsg(@RequestParam String msg){
+        return zookeeperConsumerService.sendMsg(msg);
+    };
+
 }

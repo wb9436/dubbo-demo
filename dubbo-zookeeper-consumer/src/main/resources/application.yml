@@ -4,7 +4,7 @@ server:
 dubbo:
   application:
     name: dubbo-zookeeper-consumer
+  consumer:
+    owner: 1016065991@qq.com
   registry:
-    address: zookeeper://127.0.0.1:2181?client=zkclient
-
-
+    address: zookeeper://127.0.0.1:2181?client=zkclient|zookeeper://127.0.0.1:2182?client=zkclient
