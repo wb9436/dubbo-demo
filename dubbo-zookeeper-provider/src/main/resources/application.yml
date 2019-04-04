@@ -15,6 +15,11 @@ spring:
       max-total: 40
       max-wait-millis: 60000
 
+mybatis:
+  mapper-locations: classpath:mapper/*/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
 dubbo:
   application:
     name: dubbo-zookeeper-provider
@@ -22,6 +27,8 @@ dubbo:
     name: UserInfo
     version: 1.0
     owner: 1016065991
+  provider:
+    filter: com.wb.filter.ServiceFilter
   registry:
     address: zookeeper://127.0.0.1:2181?client=zkclient|zookeeper://127.0.0.1:2182?client=zkclient
     protocol:

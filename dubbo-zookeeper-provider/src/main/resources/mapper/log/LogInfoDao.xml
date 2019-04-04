@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wb.dao.LogInfoDao">
+
+	<insert id="recordLogInfo" parameterType="com.wb.dto.LogInfoDto" keyProperty="logId" useGeneratedKeys="true">
+		<![CDATA[
+			INSERT INTO log_info(
+				interfaceName,
+				method,
+				args,
+				result,
+				createTime
+			) VALUES (
+				#{interfaceName},
+				#{method},
+				#{args},
+				#{result},
+				#{createTime}
+			)
+		]]>
+	</insert>
+
+	<select id="getLogList" resultType="com.wb.dto.LogInfoDto">
+		<![CDATA[
+			SELECT
+				a.logId,
+				a.interfaceName,
+				a.method,
+				a.args,
+				a.result,
+				a.createTime
+			FROM
+				log_info AS a
+		]]>
+	</select>
+
+</mapper>

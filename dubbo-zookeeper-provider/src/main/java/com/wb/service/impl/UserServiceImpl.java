@@ -5,9 +5,9 @@ import com.wb.dto.UserInfoDto;
 import com.wb.service.IUserService;
 import org.springframework.stereotype.Component;
 
-@Service        //非spring 暴露服务
+@Service(filter = "serviceFilter")     //非spring 暴露服务
 @Component
-public class UserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserService {
 
     @Override
     public UserInfoDto getUserInfo(int userId) {
