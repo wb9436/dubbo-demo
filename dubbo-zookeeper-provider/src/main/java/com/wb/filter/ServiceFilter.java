@@ -4,12 +4,19 @@ import com.alibaba.dubbo.common.extension.Activate;
 import com.alibaba.dubbo.rpc.*;
 import com.alibaba.dubbo.rpc.service.GenericService;
 import com.alibaba.fastjson.JSONObject;
+import com.wb.service.ILogInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Activate
 public class ServiceFilter implements Filter {
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceFilter.class);
+
+    //使用setter方法注入，service上要标明beanName
+    private ILogInfoService logInfoService;
+    public void setLogInfoService(ILogInfoService logInfoService) {
+        this.logInfoService = logInfoService;
+    }
 
     @Override
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
@@ -19,6 +26,9 @@ public class ServiceFilter implements Filter {
         serviceRequest.setMethodName(invocation.getMethodName());
         serviceRequest.setArgs(invocation.getArguments());
         LOGGER.info("dubbo服务接口入参: " + JSONObject.toJSONString(serviceRequest));
+        //访问IP
+        String clientIp = RpcContext.getContext().getRemoteHost();
+        LOGGER.info("dubbo服务访问IP为{}", clientIp);
         //开始时间
         long startTime = System.currentTimeMillis();
         //执行接口调用逻辑
@@ -36,6 +46,8 @@ public class ServiceFilter implements Filter {
             serviceResponse.setArgs(invocation.getArguments());
             serviceResponse.setResult(new Object[]{result.getValue()});
             serviceResponse.setSpendTime(elapsed);
+
+            logInfoService.recordLog(serviceResponse);
 
             LOGGER.info("dubbo服务响应成功,返回数据: " + JSONObject.toJSONString(serviceResponse));
         }
