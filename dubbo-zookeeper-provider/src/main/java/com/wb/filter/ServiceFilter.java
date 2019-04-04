@@ -6,10 +6,8 @@ import com.alibaba.dubbo.rpc.service.GenericService;
 import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 @Activate
-@Component
 public class ServiceFilter implements Filter {
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceFilter.class);
 
