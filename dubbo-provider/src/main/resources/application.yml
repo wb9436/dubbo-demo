@@ -25,8 +25,8 @@ dubbo:
     name: dubbo-provider
   registry:
     address: redis://127.0.0.1:6379
-    username: auth
-    password: 12345
+    username:
+    password:
   protocol:
     name: dubbo
     port: 20880

@@ -1,5 +1,5 @@
 server:
- port: 8084
+ port: 8085
 
 spring:
  datasource:
@@ -15,14 +15,19 @@ spring:
      max-total: 40
      max-wait-millis: 60000
 
+mybatis:
+  mapper-locations: classpath:mapper/*/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
 dubbo:
   application:
-    name: dubbo-provider2
+    name: dubbo-provider
   registry:
     address: redis://127.0.0.1:6379
     username:
     password:
   protocol:
     name: dubbo
-    port: 20881
+    port: 20882
 

@@ -15,6 +15,7 @@
         <module>dubbo-zookeeper-provider</module>
         <module>dubbo-zookeeper-consumer</module>
         <module>dubbo-zookeeper-provider2</module>
+        <module>dubbo-provider-back</module>
     </modules>
 
     <name>dubbo-demo</name>
